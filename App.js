@@ -101,9 +101,14 @@ function StartScreen({navigation}) {
         </ScrollView>
       </View>
       </View>
-     
-      <Button title="Back" onPress={() => setHistorry(false)}></Button>
-    </Modal>
+     <View style={{flexDirection : 'row' , justifyContent:'space-around'}}>
+     <Button title="Back" onPress={() => setHistorry(false)}></Button>
+    <Button title = "ClearHistory" onPress={() =>{
+      setOriginalList([]);
+      setFinalList([]);
+    }}></Button>
+     </View> 
+         </Modal>
   </View>
 
     
@@ -125,7 +130,17 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="StartScreen" component={StartScreen} />
+        <Stack.Screen name="StartScreen" component={StartScreen}
+        options={{
+          title: 'Start Screen',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
      </Stack.Navigator>
     </NavigationContainer>
   );
